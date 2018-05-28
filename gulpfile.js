@@ -1,30 +1,30 @@
 // Defining requirements
-var gulp = require( 'gulp' );
-var plumber = require( 'gulp-plumber' );
-var sass = require( 'gulp-sass' );
-var watch = require( 'gulp-watch' );
-var cssnano = require( 'gulp-cssnano' );
-var rename = require( 'gulp-rename' );
-var concat = require( 'gulp-concat' );
-var uglify = require( 'gulp-uglify' );
-var merge2 = require( 'merge2' );
-var imagemin = require( 'gulp-imagemin' );
-var ignore = require( 'gulp-ignore' );
-var rimraf = require( 'gulp-rimraf' );
-var clone = require( 'gulp-clone' );
-var merge = require( 'gulp-merge' );
-var sourcemaps = require( 'gulp-sourcemaps' );
-var browserSync = require( 'browser-sync' ).create();
-var del = require( 'del' );
-var cleanCSS = require( 'gulp-clean-css' );
-var gulpSequence = require( 'gulp-sequence' );
-var replace = require( 'gulp-replace' );
-var autoprefixer = require( 'gulp-autoprefixer' );
-var rev = require('gulp-rev');
+let gulp = require( 'gulp' );
+let plumber = require( 'gulp-plumber' );
+let sass = require( 'gulp-sass' );
+let watch = require( 'gulp-watch' );
+let cssnano = require( 'gulp-cssnano' );
+let rename = require( 'gulp-rename' );
+let concat = require( 'gulp-concat' );
+let uglify = require( 'gulp-uglify' );
+let merge2 = require( 'merge2' );
+let imagemin = require( 'gulp-imagemin' );
+let ignore = require( 'gulp-ignore' );
+let rimraf = require( 'gulp-rimraf' );
+let clone = require( 'gulp-clone' );
+let merge = require( 'gulp-merge' );
+let sourcemaps = require( 'gulp-sourcemaps' );
+let browserSync = require( 'browser-sync' ).create();
+let del = require( 'del' );
+let cleanCSS = require( 'gulp-clean-css' );
+let gulpSequence = require( 'gulp-sequence' );
+let replace = require( 'gulp-replace' );
+let autoprefixer = require( 'gulp-autoprefixer' );
+let rev = require('gulp-rev');
 
 // Configuration file to keep your code DRY
-var cfg = require( './gulpconfig.json' );
-var paths = cfg.paths;
+let cfg = require( './gulpconfig.json' );
+let paths = cfg.paths;
 
 gulp.task( 'watch-scss', ['browser-sync'], function() {
     gulp.watch( paths.sass + '/**/*.scss', ['scss-for-dev'] );
@@ -34,7 +34,7 @@ gulp.task( 'watch-scss', ['browser-sync'], function() {
 // gulp sass
 // Compiles SCSS files in CSS
 gulp.task( 'sass', function() {
-    var stream = gulp.src( paths.sass + '/*.scss' )
+    let stream = gulp.src( paths.sass + '/*.scss' )
         .pipe( plumber( {
             errorHandler: function( err ) {
                 console.log( err );
@@ -45,7 +45,7 @@ gulp.task( 'sass', function() {
         .pipe( sass( { errLogToConsole: true } ) )
         .pipe( autoprefixer( 'last 2 versions' ) )
         .pipe(sourcemaps.write(undefined, { sourceRoot: null }))
-        .pipe( gulp.dest( paths.css ) )
+        .pipe( gulp.dest( paths.css ) );
     return stream;
 });
 
@@ -147,7 +147,7 @@ gulp.task( 'watch-bs', ['browser-sync', 'watch', 'scripts', 'rev'], function() {
 // gulp scripts.
 // Uglifies and concat all JS files into one
 gulp.task( 'scripts', function() {
-    var scripts = [
+    let scripts = [
 
         // Start - All BS4 stuff
         paths.dev + '/js/bootstrap4/bootstrap.js',
@@ -163,7 +163,7 @@ gulp.task( 'scripts', function() {
   gulp.src( scripts )
     .pipe( concat( 'theme.min.js' ) )
     .pipe( uglify() )
-    .pipe( gulp.dest( paths.js ) )
+    .pipe( gulp.dest( paths.js ) );
     rev();
 
   gulp.src( scripts )
@@ -185,7 +185,7 @@ gulp.task( 'copy-assets', function() {
 
 ////////////////// All Bootstrap 4 Assets /////////////////////////
 // Copy all JS files
-    var stream = gulp.src( paths.node + 'bootstrap/dist/js/**/*.js' )
+    let stream = gulp.src( paths.node + 'bootstrap/dist/js/**/*.js' )
         .pipe( gulp.dest( paths.dev + '/js/bootstrap4' ) );
 
 // Copy all Bootstrap SCSS files
@@ -205,6 +205,10 @@ gulp.task( 'copy-assets', function() {
 // _s SCSS files
     gulp.src( paths.node + 'undescores-for-npm/sass/media/*.scss' )
         .pipe( gulp.dest( paths.dev + '/sass/underscores' ) );
+
+//  Randman's Social Colors files
+    gulp.src(paths.node + 'randmans-social-colors/*.scss')
+        .pipe(gulp.dest( paths.dev + '/sass/social-colors' ) );
 
 // _s JS files into /src/js
     gulp.src( paths.node + 'undescores-for-npm/js/skip-link-focus-fix.js' )
