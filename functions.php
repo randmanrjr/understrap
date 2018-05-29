@@ -69,3 +69,8 @@ require get_template_directory() . '/inc/woocommerce.php';
  * Load Editor functions.
  */
 require get_template_directory() . '/inc/editor.php';
+
+/**
+ * Load Mayo Functions package
+ */
+require get_template_directory() . '/inc/mayo-functions/mayo-functions.php';
