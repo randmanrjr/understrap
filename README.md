@@ -1,26 +1,22 @@
-Travis build: [![Build Status](https://travis-ci.org/understrap/understrap.svg?branch=master)](https://travis-ci.org/understrap/understrap)
+#### See: Understrap's [Official Demo](https://understrap.com/understrap) | Read: [Official Docs Page](https://understrap.github.io/)
 
-#### See: [Official Demo](https://understrap.com/understrap) | Read: [Official Docs Page](https://understrap.github.io/)
+# Mayo Starter (Understrap) WordPress Theme Framework
 
-# UnderStrap WordPress Theme Framework
+This repository is a highly opinionated fork of the Understrap starter theme framework.
 
-Website: [https://understrap.com](https://understrap.com)
-
-Child Theme Project: [https://github.com/understrap/understrap-child](https://github.com/understrap/understrap-child)
+Website: [https://github.com/randmanrjr/understrap](https://github.com/randmanrjr/understrap/tree/mayo-starter)
 
 ## About
 
-I’m a huge fan of Underscores, Bootstrap, and Sass. Why not combine these into a solid WordPress Theme Framework? That’s what UnderStrap is. You can use it as starter theme and build your own theme on top of it. Or you can use it as a parent theme and create your own child theme for UnderStrap.
+I've taken the already comprehensive Understrap starter theme and enhanced it to include additional files and packages that suite our organization's needs.
+
+**From the original authors:** I’m a huge fan of Underscores, Bootstrap, and Sass. Why not combine these into a solid WordPress Theme Framework? That’s what UnderStrap is. You can use it as starter theme and build your own theme on top of it. Or you can use it as a parent theme and create your own child theme for UnderStrap.
 
 ## License
 UnderStrap WordPress Theme, Copyright 2013-2017 Holger Koenemann
 UnderStrap is distributed under the terms of the GNU GPL version 2
 
 http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
-
-## Changelog
-See [changelog](CHANGELOG.md)
-
 
 ## Basic Features
 
@@ -31,7 +27,6 @@ See [changelog](CHANGELOG.md)
 - Jetpack ready.
 - WooCommerce support.
 - Contact Form 7 support.
-- [Child Theme](https://github.com/holger1411/understrap-child) ready.
 - Translation ready.
 
 ## Starter Theme + HTML Framework = WordPress Theme Framework
@@ -41,51 +36,41 @@ Why not add a well known and supported layout framework to have a solid, clean a
 
 ## Confused by All the CSS and Sass Files?
 
-Some basics about the Sass and CSS files that come with UnderStrap:
+Some basics about the Sass and CSS files that come with Mayo Starter (Understrap):
 - The theme itself uses the `/style.css`file only to identify the theme inside of WordPress. The file is not loaded by the theme and does not include any styles.
-- The `/css/theme.css` and its minified little brother `/css/theme.min.css` file(s) provides all styles. It is composed of five different SCSS sets and one variable file at `/sass/theme.scss`:
+- The `/css/theme.css` and its minified little brother `/css/theme.min.css` file(s) provides all styles. Are compiled from the different SCSS sets and one variable file at `/sass/theme.scss`:
+    - `@import "assets/b4functions";` // 1. Bootstrap 4 functions required by theme_variables
+    - `@import "theme/theme_variables";`  // 2. Add your variables into this file. Also add variables to overwrite Bootstrap or UnderStrap variables here
+    - `@import "../src/bootstrap-sass/assets/stylesheets/bootstrap";`  // 3. All the Bootstrap stuff - Don´t edit this!
+    - `@import "understrap/understrap";` // 4. Some basic WordPress stylings and needed styles to combine Boostrap and Underscores
+    - `@import "../src/fontawesome/scss/font-awesome";` // 5. Font Awesome Icon styles
+    - // Any additional imported files //
+    - `@import "theme/theme";`  // 6. Add your styles into this file
+ 
 
- ```@import "theme/theme_variables";  // 1. Add your variables into this file. Also add variables to overwrite Bootstrap or UnderStrap variables here
- @import "../src/bootstrap-sass/assets/stylesheets/bootstrap";  // 2. All the Bootstrap stuff - Don´t edit this!
- @import "understrap/understrap"; // 3. Some basic WordPress stylings and needed styles to combine Boostrap and Underscores
- @import "../src/fontawesome/scss/font-awesome"; // 4. Font Awesome Icon styles
- // Any additional imported files //
- @import "theme/theme";  // 5. Add your styles into this file
- ```
+- Don’t edit the files no. 3-5 files/filesets or you won’t be able to update the theme framework without overwriting your own work!
+- Your design goes into: `/sass/theme`.
+    - `/sass/theme/_theme_variables.scss` The variables defined here override the default Bootstrap variables
+    - `/sass/theme/_header.scss` (your header styles go here)
+    - `/sass/theme/_navigation.scss` (styles for customizing the Bootstrap Navbar)
+    - `/sass/theme/_theme.scss` (general styles for the theme)
+    - `sass/theme/_footer.scss` (your footer styles go here)
+    - `sass/theme/_gravity_forms.scss` (scss template for overriding gravity forms styles)
+    - Or add other .scss files into it and `@import` it into `/sass/theme/_theme.scss`.
+    
+    **Note:** Please leverage the `_theme_variables.scss` file to modify the default Bootstrap styles/behaviour. Also when using colors throughout your SASS code, please first define a color variable or use one of the existing variables instead of hard coding the color. This makes globally updating the theme's colors more streamlined.
 
-- Don’t edit the files no. 2-4 files/filesets or you won’t be able to update it without overwriting your own work!
-- Your design goes into: `/sass/theme`. 
-  - Add your styles to the `/sass/theme/_theme.scss` file 
-  - And your variables to the `/sass/theme/_theme_variables.scss`
-  - Or add other .scss files into it and `@import` it into `/sass/theme/_theme.scss`.
+## Start by cloning this repository and checking out the mayo-starter branch
 
-## Installation
-
-### Classic install
-- Download the understrap folder from GitHub or from [https://understrap.com](https://understrap.com)
-- IMPORTANT: If you download it from GitHub make sure you rename the "understrap-master.zip" file just to "understrap.zip" or you might have problems using child themes!
-- Upload it into your WordPress installation subfolder: `/wp-content/themes/`
-- Login to your WordPress backend
-- Go to Appearance → Themes
-- Activate the UnderStrap theme
-
-### npm install
-- Open your terminal
-- Change to the directory where you want to add UnderStrap
-- Type `npm install understrap`
-
-### WordPress.org install
-- Open your WordPress backend
-- Click on "Appearance -> Themes"
-- Hit the "Add new" button
-- Search for "UnderStrap"
-- Hit the "install" button
-- Activate the theme
+```bash
+$ git clone https://github.com/randmanrjr/understrap.git
+$ git checkout -b mayo-starter origin/mayo-starter
+```
 
 ## Developing With npm, Gulp and SASS and [Browser Sync][1]
 
 ### Installing Dependencies
-- Make sure you have installed Node.js and Browser-Sync (optional) on your computer globally
+- Make sure you have installed Node.js (stable version 6 release works well) and Browser-Sync (optional) on your computer globally
 - Then open your terminal and browse to the location of your UnderStrap copy
 - Run: `$ npm install`
 
