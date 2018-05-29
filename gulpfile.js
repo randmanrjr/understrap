@@ -146,7 +146,7 @@ gulp.task( 'watch-bs', ['browser-sync', 'watch', 'scripts', 'rev'], function() {
 // Run:
 // gulp scripts.
 // Uglifies and concat all JS files into one
-gulp.task( 'scripts', function() {
+gulp.task( 'scripts', ['clean-scripts'], function() {
     let scripts = [
 
         // Start - All BS4 stuff
@@ -169,6 +169,12 @@ gulp.task( 'scripts', function() {
   gulp.src( scripts )
     .pipe( concat( 'theme.js' ) )
     .pipe( gulp.dest( paths.js ) );
+});
+
+gulp.task( 'clean-scripts', function () {
+    return gulp.src( paths.js + '/theme-*.min.js', { read: false } ) // Much faster
+        .pipe( ignore( 'theme.js' ) )
+        .pipe( rimraf() );
 });
 
 // Deleting any file inside the /src folder
