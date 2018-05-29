@@ -32,6 +32,10 @@ src/sass/social-colors/
 
 css/
 
-./img/
+img/
 
 inc/mayo-functions/
+
+js/theme-*
+
+rev-manifest.json

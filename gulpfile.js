@@ -23,6 +23,10 @@ let rev = require('gulp-rev');
 let cfg = require( './gulpconfig.json' );
 let paths = cfg.paths;
 
+gulp.task('build-all', function (callback) {
+    gulpSequence(['styles', 'scripts', 'imagemin'], 'dist') (callback);
+});
+
 gulp.task( 'watch-scss', ['browser-sync'], function() {
     gulp.watch( paths.sass + '/**/*.scss', ['scss-for-dev'] );
 });
