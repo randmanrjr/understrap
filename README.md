@@ -79,6 +79,10 @@ To work with and compile your Sass files on the fly start:
 
 - `$ gulp watch`
 
+To Build everything and copy all the theme files to `/dist` :
+
+- `$ gulp build-all`
+
 Or, to run with Browser-Sync:
 
 - First change the browser-sync options to reflect your environment in the file `/gulpconfig.json` in the beginning of the file:
