@@ -7,12 +7,9 @@ let cssnano = require( 'gulp-cssnano' );
 let rename = require( 'gulp-rename' );
 let concat = require( 'gulp-concat' );
 let uglify = require( 'gulp-uglify' );
-let merge2 = require( 'merge2' );
 let imagemin = require( 'gulp-imagemin' );
 let ignore = require( 'gulp-ignore' );
 let rimraf = require( 'gulp-rimraf' );
-let clone = require( 'gulp-clone' );
-let merge = require( 'gulp-merge' );
 let sourcemaps = require( 'gulp-sourcemaps' );
 let browserSync = require( 'browser-sync' ).create();
 let del = require( 'del' );
@@ -34,7 +31,7 @@ gulp.task( 'watch-scss', ['browser-sync'], function() {
 // gulp sass
 // Compiles SCSS files in CSS
 gulp.task( 'sass', function() {
-    let stream = gulp.src( paths.sass + '/*.scss' )
+    gulp.src( paths.sass + '/*.scss' )
         .pipe( plumber( {
             errorHandler: function( err ) {
                 console.log( err );
@@ -46,7 +43,6 @@ gulp.task( 'sass', function() {
         .pipe( autoprefixer( 'last 2 versions' ) )
         .pipe(sourcemaps.write(undefined, { sourceRoot: null }))
         .pipe( gulp.dest( paths.css ) );
-    return stream;
 });
 
 // Run:
