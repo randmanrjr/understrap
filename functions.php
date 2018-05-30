@@ -74,7 +74,7 @@ require get_template_directory() . '/inc/editor.php';
  * Load Client/theme specific functions
  */
 
-require get_template_directory() . 'inc/client-specific-functions.php';
+require get_template_directory() . '/inc/client-specific-functions.php';
 
 /**
  * Load Mayo Functions package
