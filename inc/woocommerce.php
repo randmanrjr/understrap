@@ -5,6 +5,9 @@
  * @package understrap
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 add_action( 'after_setup_theme', 'understrap_woocommerce_support' );
 if ( ! function_exists( 'understrap_woocommerce_support' ) ) {
@@ -13,7 +16,7 @@ if ( ! function_exists( 'understrap_woocommerce_support' ) ) {
 	 */
 	function understrap_woocommerce_support() {
 		add_theme_support( 'woocommerce' );
-		
+
 		// Add New Woocommerce 3.0.0 Product Gallery support
 		add_theme_support( 'wc-product-gallery-lightbox' );
 		add_theme_support( 'wc-product-gallery-zoom' );
@@ -23,7 +26,6 @@ if ( ! function_exists( 'understrap_woocommerce_support' ) ) {
 		add_filter( 'woocommerce_form_field_args', 'understrap_wc_form_field_args', 10, 3 );
 	}
 }
-
 
 /**
 * First unhook the WooCommerce wrappers
@@ -133,19 +135,6 @@ if ( ! function_exists ( 'understrap_wc_form_field_args' ) ) {
 				$args['label_class'] = array( 'control-label' );
 				break;
 		} // end switch ($args).
-		return $args;
-	}
-}
-
-
-/**
-* Change loop add-to-cart button class to Bootstrap
-*/
-add_filter( 'woocommerce_loop_add_to_cart_args', 'understrap_woocommerce_add_to_cart_args', 10, 2 );
-
-if ( ! function_exists ( 'understrap_woocommerce_add_to_cart_args' ) ) {
-	function understrap_woocommerce_add_to_cart_args( $args, $product ) {
-		$args['class'] = str_replace('button','btn btn-outline-primary', 'button');
 		return $args;
 	}
 }

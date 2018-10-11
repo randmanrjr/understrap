@@ -5,6 +5,10 @@
  * @package understrap
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! is_active_sidebar( 'left-sidebar' ) ) {
 	return;
 }
@@ -20,4 +24,4 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 	<?php endif; ?>
 <?php dynamic_sidebar( 'left-sidebar' ); ?>
 
-</div><!-- #secondary -->
+</div><!-- #left-sidebar -->

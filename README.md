@@ -13,7 +13,7 @@ I've taken the already comprehensive Understrap starter theme and enhanced it to
 **From the original authors:** I’m a huge fan of Underscores, Bootstrap, and Sass. Why not combine these into a solid WordPress Theme Framework? That’s what UnderStrap is. You can use it as starter theme and build your own theme on top of it. Or you can use it as a parent theme and create your own child theme for UnderStrap.
 
 ## License
-UnderStrap WordPress Theme, Copyright 2013-2017 Holger Koenemann
+UnderStrap WordPress Theme, Copyright 2013-2018 Holger Koenemann
 UnderStrap is distributed under the terms of the GNU GPL version 2
 
 http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
@@ -97,7 +97,7 @@ Or, to run with Browser-Sync:
 ```
 - then run: `$ gulp watch-bs`
 
-## How to Use the Build-In Widget Slider
+## How to Use the Built-In Widget Slider
 
 The front-page slider is widget driven. Simply add more than one widget to widget position “Hero”.
 - Click on Appearance → Widgets.
@@ -109,6 +109,7 @@ Add a new file to the themes root folder called rtl.css. Add all alignments to t
 https://codex.wordpress.org/Right_to_Left_Language_Support
 
 ## Page Templates
+UnderStrap includes several different page template files: (1) blank template, (2) empty template, and (3) full width template.
 
 ### Blank Template
 

@@ -1,23 +1,25 @@
 // Defining requirements
-let gulp = require( 'gulp' );
-let plumber = require( 'gulp-plumber' );
-let sass = require( 'gulp-sass' );
-let watch = require( 'gulp-watch' );
-let cssnano = require( 'gulp-cssnano' );
-let rename = require( 'gulp-rename' );
-let concat = require( 'gulp-concat' );
-let uglify = require( 'gulp-uglify' );
-let imagemin = require( 'gulp-imagemin' );
-let ignore = require( 'gulp-ignore' );
-let rimraf = require( 'gulp-rimraf' );
-let sourcemaps = require( 'gulp-sourcemaps' );
-let browserSync = require( 'browser-sync' ).create();
-let del = require( 'del' );
-let cleanCSS = require( 'gulp-clean-css' );
-let gulpSequence = require( 'gulp-sequence' );
-let replace = require( 'gulp-replace' );
-let autoprefixer = require( 'gulp-autoprefixer' );
-let rev = require('gulp-rev');
+var gulp = require( 'gulp' );
+var plumber = require( 'gulp-plumber' );
+var sass = require( 'gulp-sass' );
+var watch = require( 'gulp-watch' );
+var cssnano = require( 'gulp-cssnano' );
+var rename = require( 'gulp-rename' );
+var concat = require( 'gulp-concat' );
+var uglify = require( 'gulp-uglify' );
+var merge2 = require( 'merge2' );
+var imagemin = require( 'gulp-imagemin' );
+var ignore = require( 'gulp-ignore' );
+var rimraf = require( 'gulp-rimraf' );
+var clone = require( 'gulp-clone' );
+var merge = require( 'gulp-merge' );
+var sourcemaps = require( 'gulp-sourcemaps' );
+var browserSync = require( 'browser-sync' ).create();
+var del = require( 'del' );
+var cleanCSS = require( 'gulp-clean-css' );
+var gulpSequence = require( 'gulp-sequence' );
+var replace = require( 'gulp-replace' );
+var autoprefixer = require( 'gulp-autoprefixer' );
 
 // Configuration file to keep your code DRY
 let cfg = require( './gulpconfig.json' );
@@ -95,16 +97,6 @@ gulp.task( 'cssnano', function() {
     .pipe( gulp.dest( paths.css ) );
 });
 
-gulp.task( 'rev', function() {
-  // by default, gulp would pick `assets/css` as the base,
-  // so we need to set it explicitly:
-  gulp.src([paths.css + '/theme.min.css', paths.js + '/theme.min.js'], {base: './'})
-    .pipe(rev())
-    .pipe(gulp.dest('./'))  // write rev'd assets to build dir
-    .pipe(rev.manifest())
-    .pipe(gulp.dest('./'));  // write manifest to build dir
-});
-
 gulp.task( 'minifycss', function() {
   return gulp.src( paths.css + '/theme.css' )
   .pipe( sourcemaps.init( { loadMaps: true } ) )
@@ -127,7 +119,7 @@ gulp.task( 'cleancss', function() {
 });
 
 gulp.task( 'styles', function( callback ) {
-    gulpSequence( 'sass', 'minifycss', 'rev' )( callback );
+    gulpSequence( 'sass', 'minifycss' )( callback );
 } );
 
 // Run:
@@ -140,7 +132,7 @@ gulp.task( 'browser-sync', function() {
 // Run:
 // gulp watch-bs
 // Starts watcher with browser-sync. Browser-sync reloads page automatically on your browser
-gulp.task( 'watch-bs', ['browser-sync', 'watch', 'scripts', 'rev'], function() {
+gulp.task( 'watch-bs', ['browser-sync', 'watch', 'scripts'], function() {
 } );
 
 // Run:
@@ -150,7 +142,7 @@ gulp.task( 'scripts', ['clean-scripts'], function() {
     let scripts = [
 
         // Start - All BS4 stuff
-        paths.dev + '/js/bootstrap4/bootstrap.js',
+        paths.dev + '/js/bootstrap4/bootstrap.bundle.js',
 
         // End - All BS4 stuff
 
@@ -164,7 +156,6 @@ gulp.task( 'scripts', ['clean-scripts'], function() {
     .pipe( concat( 'theme.min.js' ) )
     .pipe( uglify() )
     .pipe( gulp.dest( paths.js ) );
-    rev();
 
   gulp.src( scripts )
     .pipe( concat( 'theme.js' ) )
@@ -191,7 +182,7 @@ gulp.task( 'copy-assets', function() {
 
 ////////////////// All Bootstrap 4 Assets /////////////////////////
 // Copy all JS files
-    let stream = gulp.src( paths.node + 'bootstrap/dist/js/**/*.js' )
+    var stream = gulp.src( paths.node + 'bootstrap/dist/js/**/*.js' )
         .pipe( gulp.dest( paths.dev + '/js/bootstrap4' ) );
 
 // Copy all Bootstrap SCSS files
@@ -223,13 +214,6 @@ gulp.task( 'copy-assets', function() {
 // _s JS files into /src/js
     gulp.src( paths.node + 'undescores-for-npm/js/skip-link-focus-fix.js' )
         .pipe( gulp.dest( paths.dev + '/js' ) );
-
-// Copy Popper JS files
-    gulp.src( paths.node + 'popper.js/dist/umd/popper.min.js' )
-        .pipe( gulp.dest( paths.js + paths.vendor ) );
-    gulp.src( paths.node + 'popper.js/dist/umd/popper.js' )
-        .pipe( gulp.dest( paths.js + paths.vendor ) );
-    return stream;
 });
 
 // Deleting the files distributed by the copy-assets task
