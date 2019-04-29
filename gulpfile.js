@@ -21,15 +21,15 @@ var autoprefixer = require( 'gulp-autoprefixer' );
 let cfg = require( './gulpconfig.json' );
 let paths = cfg.paths;
 
-gulp.task('build-all', function (callback) {
-    gulpSequence(['styles', 'scripts', 'imagemin'], 'dist') (callback);
+gulp.task('build-all', function (done) {
+    gulp.series(gulp.parallel('styles', 'scripts','imagemin'), 'dist')(done);
 });
 
 // Run:
 // gulp sass
 // Compiles SCSS files in CSS
 gulp.task( 'sass', function() {
-    gulp.src( paths.sass + '/*.scss' )
+    return gulp.src( paths.sass + '/*.scss' )
         .pipe( plumber( {
             errorHandler: function( err ) {
                 console.log( err );
@@ -58,7 +58,7 @@ gulp.task( 'watch', function() {
 // gulp imagemin
 // Running image optimizing task
 gulp.task( 'imagemin', function() {
-    gulp.src( `${paths.imgsrc}/**` )
+    return gulp.src( `${paths.imgsrc}/**` )
     .pipe( imagemin() )
     .pipe( gulp.dest( paths.img ) );
 });
