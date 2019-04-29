@@ -124,7 +124,7 @@ gulp.task( 'browser-sync', function() {
 // Run:
 // gulp scripts.
 // Uglifies and concat all JS files into one
-gulp.task( 'scripts', ['clean-scripts'], function() {
+gulp.task( 'scripts', function() {
     let scripts = [
 
         // Start - All BS4 stuff
@@ -148,12 +148,6 @@ gulp.task( 'scripts', ['clean-scripts'], function() {
     .pipe( gulp.dest( paths.js ) );
 });
 
-gulp.task( 'clean-scripts', function () {
-    return gulp.src( paths.js + '/theme-*.min.js', { read: false } ) // Much faster
-        .pipe( ignore( 'theme.js' ) )
-        .pipe( rimraf() );
-});
-
 // Deleting any file inside the /src folder
 gulp.task( 'clean-source', function() {
   return del( ['src/**/*'] );
@@ -162,7 +156,7 @@ gulp.task( 'clean-source', function() {
 // Run:
 // gulp watch-bs
 // Starts watcher with browser-sync. Browser-sync reloads page automatically on your browser
-gulp.task( 'watch-bs', gulp.parallel('browser-sync', 'watch'));
+gulp.task( 'watch-bs', gulp.series('browser-sync', 'watch', 'scripts'));
 
 // Run:
 // gulp copy-assets.
