@@ -237,11 +237,12 @@ gulp.task('copy-assets', function (done) {
 	gulp
 		.src(`${paths.node}undescores-for-npm/js/skip-link-focus-fix.js`)
 		.pipe(gulp.dest(`${paths.dev}/js`));
-//  Randman's Social Colors files
+
+	//  Randman's Social Colors files
     gulp.src(paths.node + 'randmans-social-colors/*.scss')
         .pipe(gulp.dest( paths.dev + '/sass/social-colors' ) );
 
-// Copy all Mayo Functions files
+	// Copy all Mayo Functions files
     gulp.src(paths.node + 'mayo-functions/**/*.*')
         .pipe(gulp.dest( './inc/mayo-functions'));
 
