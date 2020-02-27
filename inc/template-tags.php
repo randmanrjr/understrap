@@ -1,15 +1,14 @@
 <?php
 /**
- * Custom template tags for this theme.
+ * Custom template tags for this theme
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package understrap
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Prints HTML with meta information for the current post-date/time and author.
@@ -36,7 +35,7 @@ if ( ! function_exists( 'understrap_posted_on' ) ) {
 		);
 		$byline      = apply_filters(
 			'understrap_posted_by', sprintf(
-				'<span class="byline"> %1$s<span class="author vcard"><a class="url fn n" href="%2$s"> %3$s</a></span></span>',
+				'<span class="byline"> %1$s<span class="author vcard"> <a class="url fn n" href="%2$s">%3$s</a></span></span>',
 				$posted_on ? esc_html_x( 'by', 'post author', 'understrap' ) : esc_html_x( 'Posted by', 'post author', 'understrap' ),
 				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 				esc_html( get_the_author() )
@@ -45,7 +44,6 @@ if ( ! function_exists( 'understrap_posted_on' ) ) {
 		echo $posted_on . $byline; // WPCS: XSS OK.
 	}
 }
-
 
 /**
  * Prints HTML with meta information for the categories, tags and comments.
@@ -76,14 +74,13 @@ if ( ! function_exists( 'understrap_entry_footer' ) ) {
 			sprintf(
 				/* translators: %s: Name of current post */
 				esc_html__( 'Edit %s', 'understrap' ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
+				the_title( '<span class="sr-only">"', '"</span>', false )
 			),
 			'<span class="edit-link">',
 			'</span>'
 		);
 	}
 }
-
 
 /**
  * Returns true if a blog has more than 1 category.
@@ -105,15 +102,14 @@ if ( ! function_exists( 'understrap_categorized_blog' ) ) {
 			set_transient( 'understrap_categories', $all_the_cool_cats );
 		}
 		if ( $all_the_cool_cats > 1 ) {
-			// This blog has more than 1 category so components_categorized_blog should return true.
+			// This blog has more than 1 category so understrap_categorized_blog should return true.
 			return true;
 		} else {
-			// This blog has only 1 category so components_categorized_blog should return false.
+			// This blog has only 1 category so understrap_categorized_blog should return false.
 			return false;
 		}
 	}
 }
-
 
 /**
  * Flush out the transients used in understrap_categorized_blog.
@@ -128,5 +124,31 @@ if ( ! function_exists( 'understrap_category_transient_flusher' ) ) {
 		}
 		// Like, beat it. Dig?
 		delete_transient( 'understrap_categories' );
+	}
+}
+
+if ( ! function_exists( 'understrap_body_attributes' ) ) {
+	/**
+	 * Displays the attributes for the body element.
+	 */
+	function understrap_body_attributes() {
+		/**
+		 * Filters the body attributes.
+		 *
+		 * @param array $atts An associative array of attributes.
+		 */
+		$atts = array_unique( apply_filters( 'understrap_body_attributes', $atts = array() ) );
+		if ( ! is_array( $atts ) || empty( $atts ) ) {
+			return;
+		}
+		$attributes = '';
+		foreach ( $atts as $name => $value ) {
+			if ( $value ) {
+				$attributes .= sanitize_key( $name ) . '="' . esc_attr( $value ) . '" ';
+			} else {
+				$attributes .= sanitize_key( $name ) . ' ';
+			}
+		}
+		echo trim( $attributes ); // phpcs:ignore WordPress.Security.EscapeOutput
 	}
 }

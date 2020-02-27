@@ -1,15 +1,14 @@
 <?php
 /**
- * The template for displaying the author pages.
+ * The template for displaying the author pages
  *
  * Learn more: https://codex.wordpress.org/Author_Templates
  *
  * @package understrap
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 get_header();
 $container = get_theme_mod( 'understrap_container_type' );
@@ -53,7 +52,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 							<?php if ( ! empty( $curauth->user_description ) ) : ?>
 								<dt><?php esc_html_e( 'Profile', 'understrap' ); ?></dt>
-								<dd><?php esc_html_e( $curauth->user_description ); ?></dd>
+								<dd><?php esc_html_e( $curauth->user_description, 'understrap' ); ?></dd>
 							<?php endif; ?>
 						</dl>
 					<?php endif; ?>
@@ -76,8 +75,8 @@ $container = get_theme_mod( 'understrap_container_type' );
 									the_title( '', '', false )
 								);
 								?>
-								<?php understrap_posted_on(); ?> 
-								<?php esc_html_e( 'in', 'understrap' ); ?> 
+								<?php understrap_posted_on(); ?>
+								<?php esc_html_e( 'in', 'understrap' ); ?>
 								<?php the_category( '&' ); ?>
 							</li>
 						<?php endwhile; ?>
@@ -106,4 +105,4 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 </div><!-- #author-wrapper -->
 
-<?php get_footer(); ?>
+<?php get_footer();

@@ -1,13 +1,12 @@
 <?php
 /**
- * The template for displaying search results pages.
+ * The template for displaying search results pages
  *
  * @package understrap
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 get_header();
 
@@ -76,4 +75,4 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 </div><!-- #search-wrapper -->
 
-<?php get_footer(); ?>
+<?php get_footer();

@@ -1,13 +1,12 @@
 <?php
 /**
- * Understrap enqueue scripts
+ * UnderStrap enqueue scripts
  *
  * @package understrap
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 if ( ! function_exists( 'understrap_scripts' ) ) {
 	/**

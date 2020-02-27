@@ -15,9 +15,8 @@
  * @version 3.6.1
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_before_customer_login_form' ); ?>
 
@@ -118,4 +117,4 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 </div>
 <?php endif; ?>
 
-<?php do_action( 'woocommerce_after_customer_login_form' ); ?>
+<?php do_action( 'woocommerce_after_customer_login_form' );

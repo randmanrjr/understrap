@@ -1,10 +1,16 @@
-#### See: Understrap's [Official Demo](https://understrap.com/understrap) | Read: [Official Docs Page](https://understrap.github.io/)
+[![Build Status](https://api.travis-ci.org/understrap/understrap.svg?branch=master)](https://travis-ci.org/understrap/understrap)
+[![Wordpress Theme Version](https://img.shields.io/wordpress/theme/v/understrap.svg)](https://wordpress.org/themes/understrap)
+[![Wordpress Theme Active Installs](https://img.shields.io/wordpress/theme/installs/understrap.svg)](https://wordpress.org/themes/understrap/)
+[![Github Last Commit](https://img.shields.io/github/last-commit/understrap/understrap)](https://github.com/understrap/understrap/commits/master)
+[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0)
 
 # Mayo Starter (Understrap) WordPress Theme Framework
 
 This repository is a highly opinionated fork of the Understrap starter theme framework.
 
 Website: [https://github.com/randmanrjr/understrap](https://github.com/randmanrjr/understrap/tree/mayo-starter)
+
+OverStrap Child Themes: [https://understrap.com/overstrap/](https://understrap.com/overstrap/)
 
 ## About
 
@@ -18,6 +24,10 @@ UnderStrap is distributed under the terms of the GNU GPL version 2
 
 http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
+## Changelog
+See [changelog](CHANGELOG.md)
+
+
 ## Basic Features
 
 - Combines Underscore’s PHP/JS files and Bootstrap’s HTML/CSS/JS.
@@ -27,6 +37,7 @@ http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 - Jetpack ready.
 - WooCommerce support.
 - Contact Form 7 support.
+- [Child Theme](https://github.com/understrap/understrap-child) ready.
 - Translation ready.
 
 ## Starter Theme + HTML Framework = WordPress Theme Framework
@@ -46,7 +57,7 @@ Some basics about the Sass and CSS files that come with Mayo Starter (Understrap
     - `@import "../src/fontawesome/scss/font-awesome";` // 5. Font Awesome Icon styles
     - // Any additional imported files //
     - `@import "theme/theme";`  // 6. Add your styles into this file
- 
+
 
 - Don’t edit the files no. 3-5 files/filesets or you won’t be able to update the theme framework without overwriting your own work!
 - Your design goes into: `/sass/theme`.
@@ -57,7 +68,7 @@ Some basics about the Sass and CSS files that come with Mayo Starter (Understrap
     - `sass/theme/_footer.scss` (your footer styles go here)
     - `sass/theme/_gravity_forms.scss` (scss template for overriding gravity forms styles)
     - Or add other .scss files into it and `@import` it into `/sass/theme/_theme.scss`.
-    
+
     **Note:** Please leverage the `_theme_variables.scss` file to modify the default Bootstrap styles/behaviour. Also when using colors throughout your SASS code, please first define a color variable or use one of the existing variables instead of hard coding the color. This makes globally updating the theme's colors more streamlined.
 
 ## Start by cloning this repository and checking out the mayo-starter branch
@@ -66,6 +77,14 @@ Some basics about the Sass and CSS files that come with Mayo Starter (Understrap
 $ git clone https://github.com/randmanrjr/understrap.git
 $ git checkout -b mayo-starter origin/mayo-starter
 ```
+
+### WordPress.org install
+- Open your WordPress backend
+- Click on "Appearance -> Themes"
+- Hit the "Add new" button
+- Search for "UnderStrap"
+- Hit the "install" button
+- Activate the theme
 
 ## Developing With npm, Gulp and SASS and [Browser Sync][1]
 
@@ -135,6 +154,3 @@ and of course
 - jQuery: https://jquery.org | (Code licensed under MIT)
 - WP Bootstrap Navwalker by Edward McIntyre: https://github.com/twittem/wp-bootstrap-navwalker | GNU GPL
 - Bootstrap Gallery Script based on Roots Sage Gallery: https://github.com/roots/sage/blob/5b9786b8ceecfe717db55666efe5bcf0c9e1801c/lib/gallery.php
-
-
-[![Analytics](https://ga-beacon.appspot.com/UA-139292-31/chromeskel_a/readme)](https://github.com/igrigorik/ga-beacon)

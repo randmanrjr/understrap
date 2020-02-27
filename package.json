@@ -1,6 +1,6 @@
 {
   "name": "understrap",
-  "version": "0.9.1",
+  "version": "0.9.4",
   "description": "WordPress Theme framework",
   "main": "index.js",
   "scripts": {
@@ -27,8 +27,9 @@
   },
   "homepage": "https://understrap.com",
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "browser-sync": "^2.26.3",
+    "@babel/preset-env": "^7.4.5",
+    "bootstrap": "^4.4.1",
+    "browser-sync": "^2.26.7",
     "del": "^4.1.0",
     "font-awesome": "^4.7.0",
     "gulp": "^4.0.0",
@@ -44,6 +45,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-sequence": "^1.0.0",
     "gulp-sourcemaps": "^2.6.5",
+    "gulp-touch-fd": "^2.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-watch": "^5.0.1",
     "mayo-functions": "git://github.com/randmanrjr/mayo-functions.git#understrap",
@@ -51,5 +53,11 @@
     "randmans-social-colors": "git://github.com/randmanrjr/social-colors.git",
     "run-sequence": "^2.2.1",
     "undescores-for-npm": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "autoprefixer": "^9.5.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-postcss": "^8.0.0"
   }
 }

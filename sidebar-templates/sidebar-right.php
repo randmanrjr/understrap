@@ -1,13 +1,12 @@
 <?php
 /**
- * The right sidebar containing the main widget area.
+ * The right sidebar containing the main widget area
  *
  * @package understrap
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 if ( ! is_active_sidebar( 'right-sidebar' ) ) {
 	return;

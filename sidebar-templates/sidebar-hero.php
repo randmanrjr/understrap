@@ -1,13 +1,12 @@
 <?php
 /**
- * Sidebar - hero setup.
+ * Sidebar - hero setup
  *
  * @package understrap
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 ?>
 
 <?php if ( is_active_sidebar( 'hero' ) ) : ?>
@@ -44,4 +43,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	jQuery( ".carousel-item" ).first().addClass( "active" );
 	</script>
 
-<?php endif; ?>
+<?php endif;

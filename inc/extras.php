@@ -1,15 +1,14 @@
 <?php
 /**
- * Custom functions that act independently of the theme templates.
+ * Custom functions that act independently of the theme templates
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package understrap
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 add_filter( 'body_class', 'understrap_body_classes' );
 
@@ -84,7 +83,7 @@ if ( ! function_exists( 'understrap_change_logo_class' ) ) {
  * Display navigation to next/previous post when applicable.
  */
 
-if ( ! function_exists ( 'understrap_post_nav' ) ) {
+if ( ! function_exists( 'understrap_post_nav' ) ) {
 	function understrap_post_nav() {
 		// Don't print empty markup if there's nowhere to navigate.
 		$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
@@ -134,3 +133,18 @@ if ( ! function_exists( 'understrap_mobile_web_app_meta' ) ) {
 	}
 }
 add_action( 'wp_head', 'understrap_mobile_web_app_meta' );
+
+if ( ! function_exists( 'understrap_default_body_attributes' ) ) {
+	/**
+	 * Adds schema markup to the body element.
+	 *
+	 * @param array $atts An associative array of attributes.
+	 * @return array
+	 */
+	function understrap_default_body_attributes( $atts ) {
+		$atts['itemscope'] = '';
+		$atts['itemtype']  = 'http://schema.org/WebSite';
+		return $atts;
+	}
+}
+add_filter( 'understrap_body_attributes', 'understrap_default_body_attributes' );
