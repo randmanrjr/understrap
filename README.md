@@ -100,7 +100,7 @@ To work with and compile your Sass files on the fly start:
 
 To Build everything and copy all the theme files to `/dist` :
 
-- `$ gulp build-all`
+- `$ gulp compile`
 
 Or, to run with Browser-Sync:
 
