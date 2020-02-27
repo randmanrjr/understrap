@@ -24,6 +24,10 @@ var autoprefixer = require('autoprefixer');
 var cfg = require('./gulpconfig.json');
 var paths = cfg.paths;
 
+gulp.task('build-all', function (done) {
+	gulp.series(gulp.parallel('styles', 'scripts','imagemin'), 'dist')(done);
+});
+
 // Run:
 // gulp sass
 // Compiles SCSS files in CSS
