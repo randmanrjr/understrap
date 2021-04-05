@@ -242,11 +242,11 @@ gulp.task( 'copy-assets', function( done ) {
 		.pipe( gulp.dest( paths.dev + '/sass/fontawesome' ) );
 
 	//  Randman's Social Colors files
-	gulp.src( paths.node + 'randmans-social-colors/*.scss' )
-		.pipe( gulp.dest( './sass/social-colors' ) );
+	gulp.src( paths.node + '/randmans-social-colors/*.scss' )
+		.pipe( gulp.dest( paths.dev + '/sass/social-colors' ) );
 
 	// Copy all Mayo Functions files
-	gulp.src( paths.node + 'mayo-functions/**/*.*' )
+	gulp.src( paths.node + '/mayo-functions/**/*.*' )
 		.pipe( gulp.dest( './inc/mayo-functions' ) );
 
 	done();
