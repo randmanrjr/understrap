@@ -127,7 +127,7 @@ gulp.task( 'styles', function( callback ) {
 /**
  * Watches .scss, .js and image files for changes.
  * On change re-runs corresponding build task.
- * 
+ *
  * Run: gulp watch
  */
 gulp.task( 'watch', function() {
@@ -171,7 +171,7 @@ gulp.task(
 /**
  * Starts watcher with browser-sync.
  * Browser-sync reloads page automatically on your browser.
- * 
+ *
  * Run: gulp watch-bs
  */
 gulp.task( 'watch-bs', gulp.parallel( 'browser-sync', 'watch' ) );
@@ -239,7 +239,15 @@ gulp.task( 'copy-assets', function( done ) {
 	// Copy all Font Awesome SCSS files
 	gulp
 		.src( paths.node + '/font-awesome/scss/*.scss' )
-		.pipe( gulp.dest( paths.dev + '/sass/fontawesome' )	);
+		.pipe( gulp.dest( paths.dev + '/sass/fontawesome' ) );
+
+	//  Randman's Social Colors files
+	gulp.src(paths.node + 'randmans-social-colors/*.scss')
+		.pipe(gulp.dest( paths.dev + '/sass/social-colors' ) );
+
+	// Copy all Mayo Functions files
+	gulp.src(paths.node + 'mayo-functions/**/*.*')
+		.pipe(gulp.dest( './inc/mayo-functions'));
 
 	done();
 } );

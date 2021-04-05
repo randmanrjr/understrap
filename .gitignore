@@ -40,6 +40,7 @@
 *.komodoproject
 *.sublime*
 *.tmproj*
+.idea/
 
 # Dependencies
 bower_components
@@ -51,3 +52,8 @@ phpcs.xml
 dist/
 dist-product/
 **/img
+
+# MAYO Starter specific files and directories
+
+src/sass/social-colors/
+inc/mayo-functions/

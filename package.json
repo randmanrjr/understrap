@@ -46,6 +46,8 @@
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
-    "postcss": "^8.2.4"
+    "postcss": "^8.2.4",
+    "mayo-functions": "git://github.com/randmanrjr/mayo-functions.git#understrap",
+    "randmans-social-colors": "git://github.com/randmanrjr/social-colors.git"
   }
 }
