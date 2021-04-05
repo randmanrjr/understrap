@@ -259,6 +259,7 @@ gulp.task( 'clean-vendor-assets', function() {
 		paths.dev + '/sass/bootstrap4',
 		paths.fonts + '/*wesome*.{ttf,woff,woff2,eot,svg}',
 		paths.dev + '/sass/fontawesome',
+		paths.dev + '/sass/social-colors',
 		paths.js + paths.vendor,
 	] );
 } );
