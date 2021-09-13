@@ -13012,6 +13012,12 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
   border: 1px solid #e9ecef;
 }
 
+.gform_wrapper form .gform_body .gform_fields .gfield .ginput_container :-moz-placeholder {
+  /* Firefox 18- */
+}
+.gform_wrapper form .gform_body .gform_fields .gfield .ginput_container ::-moz-placeholder {
+  /* Firefox 19+ */
+}
 .woocommerce-input-wrapper {
   width: 100%;
 }

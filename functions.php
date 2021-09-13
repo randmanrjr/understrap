@@ -27,6 +27,10 @@ $understrap_includes = array(
 	'/editor.php',                          // Load Editor functions.
 	'/block-editor.php',                    // Load Block Editor functions.
 	'/deprecated.php',                      // Load deprecated functions.
+	'/client-specific-functions.php',       // Client / Project specific functions.
+	'/custom-post-types.php',				// Custom Post Type Definitions.
+	'/mayo-functions/mayo-functions.php',   // Mayo Functions package.
+	'/acf-gravityforms-add-on/acf-gravityforms-add-on.php' // ACF Gravity Form Field
 );
 
 // Load WooCommerce functions if WooCommerce is activated.

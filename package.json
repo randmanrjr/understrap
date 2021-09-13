@@ -4,6 +4,7 @@
   "description": "WordPress Theme framework",
   "main": "index.js",
   "scripts": {
+    "postinstall": "npm-run-all copy-assets copy-mayo-assets",
     "bs": "browser-sync start --config src/build/browser-sync.config.js",
     "css": "npm-run-all css-compile css-postcss css-minify",
     "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css --quiet src/sass/theme.scss:css/theme.css src/sass/custom-editor-style.scss:css/custom-editor-style.css",
@@ -17,6 +18,7 @@
     "watch-run-css": "nodemon --watch sass/ --ext scss --exec \"npm-run-all css\"",
     "watch-run-js": "nodemon --watch src/js/ --ext js --exec \"npm-run-all js\"",
     "copy-assets": "node src/build/copy-assets.js",
+    "copy-mayo-assets": "node src/build/copy-mayo-assets.js",
     "dist": "npm-run-all --parallel css js"
   },
   "engines": {
@@ -64,6 +66,9 @@
     "postcss-cli": "^8.3.1",
     "postcss-understrap-palette-generator": "git+https://github.com/bacoords/postcss-understrap-palette-generator.git",
     "rollup": "^2.56.2",
-    "sass": "^1.38.1"
+    "sass": "^1.38.1",
+    "mayo-functions": "git://github.com/randmanrjr/mayo-functions.git#understrap",
+    "randmans-social-colors": "git://github.com/randmanrjr/social-colors.git",
+    "slick-carousel": "^1.8.1"
   }
 }

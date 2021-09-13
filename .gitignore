@@ -46,6 +46,12 @@
 bower_components
 node_modules
 /vendor/
+inc/mayo-functions
+css/fonts
+css/ajax-loader.gif
+src/sass/theme/randmans-social-colors
+src/js/slick.js
+src/sass/theme/slick
 
 # Other UnderStrap specific files and directories
 phpcs.xml

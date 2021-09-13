@@ -1,0 +1,77 @@
+//Gravity forms styles
+
+.gform_wrapper {
+
+  form {
+
+	//form heading
+	.gform_heading {
+
+	  .gform_title {
+
+	  }
+	}
+	//form body
+	.gform_body {
+
+	  .gform_fields {
+
+		.gfield {
+
+		  //label for form inputs
+		  .gfield_label {
+
+
+		  }
+		  //styles for form inputs
+		  .ginput_container {
+
+			input[type="text"],
+			input[type="number"],
+			input[type="date"],
+			input[type="email"],
+			input[type="tel"],
+			textarea {
+
+
+			}
+			::-webkit-input-placeholder {
+			}
+
+			:-moz-placeholder { /* Firefox 18- */
+			}
+
+			::-moz-placeholder {  /* Firefox 19+ */
+			}
+
+			:-ms-input-placeholder {
+			}
+
+			//styles for complex fields such as the name field
+			&.ginput_complex {
+
+			  span {
+				label {
+
+				}
+			  }
+
+			}
+		  }
+
+
+		}
+
+	  }
+
+	}
+	//form footer
+	.gform_footer {
+
+
+
+	}
+
+  }
+
+}
