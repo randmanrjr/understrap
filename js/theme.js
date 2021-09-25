@@ -9978,6 +9978,8 @@
     }
   })();
 
+  var slick = {exports: {}};
+
   /*
        _ _      _       _
    ___| (_) ___| | __  (_)___
@@ -9995,14 +9997,12 @@
 
    */
 
+  (function (module, exports) {
+
   (function (factory) {
 
-    if (typeof define === 'function' && define.amd) {
-      define(['jquery'], factory);
-    } else if (typeof exports !== 'undefined') {
-      module.exports = factory(require('jquery'));
-    } else {
-      factory(jQuery);
+    {
+      module.exports = factory($__default['default']);
     }
   })(function ($) {
 
@@ -12650,6 +12650,7 @@
       return _;
     };
   });
+  }(slick));
 
   exports.Alert = Alert;
   exports.Button = Button;
@@ -12664,6 +12665,7 @@
   exports.Toast = Toast;
   exports.Tooltip = Tooltip;
   exports.Util = Util;
+  exports.__moduleExports = slick.exports;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
