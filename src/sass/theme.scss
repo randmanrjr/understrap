@@ -12,7 +12,16 @@
 @import "assets/fontawesome/font-awesome";    // <-------- Font Awesome Icon font
 
 // Any additional imported files //
+@import "theme/common";
 @import "theme/theme";            // <-------- That's where you can add your own design. Thats your part!
 @import "theme/header";
+@import "theme/navigation";
 @import "theme/footer";
 
+// Page Templates Partials
+@import "theme/page-templates/front-page";
+@import "theme/page-templates/home";
+@import "theme/page-templates/fullwidthpage";
+
+//Flexible Layout Partials
+@import "theme/flexible-layouts/full-width-wysiwyg";
