@@ -67,8 +67,8 @@
     "postcss-understrap-palette-generator": "git+https://github.com/bacoords/postcss-understrap-palette-generator.git",
     "rollup": "^2.56.2",
     "sass": "^1.38.1",
-    "mayo-functions": "git://github.com/randmanrjr/mayo-functions.git#understrap",
-    "randmans-social-colors": "git://github.com/randmanrjr/social-colors.git",
+    "mayo-functions": "git+https://github.com/randmanrjr/mayo-functions.git#understrap",
+    "randmans-social-colors": "git+https://github.com/randmanrjr/social-colors.git",
     "slick-carousel": "^1.8.1"
   }
 }
