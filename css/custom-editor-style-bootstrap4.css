@@ -117,12 +117,12 @@ sup {
 }
 
 a {
-  color: #5533ff;
+  color: #6f42c1;
   text-decoration: none;
   background-color: transparent;
 }
 a:hover {
-  color: #2600e6;
+  color: #4e2d89;
   text-decoration: underline;
 }
 
@@ -318,7 +318,7 @@ template {
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
-  --purple: #5533ff;
+  --purple: #6f42c1;
   --pink: #e83e8c;
   --red: #dc3545;
   --orange: #fd7e14;
@@ -329,8 +329,8 @@ template {
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #5533ff;
-  --secondary: #6c757d;
+  --primary: #6f42c1;
+  --secondary: #ffc107;
   --success: #28a745;
   --info: #17a2b8;
   --warning: #ffc107;
@@ -342,6 +342,7 @@ template {
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
@@ -404,41 +405,41 @@ template {
 .table-primary,
 .table-primary > th,
 .table-primary > td {
-  background-color: #cfc6ff;
+  background-color: #d7caee;
 }
 .table-primary th,
 .table-primary td,
 .table-primary thead th,
 .table-primary tbody + tbody {
-  border-color: #a795ff;
+  border-color: #b49ddf;
 }
 
 .table-hover .table-primary:hover {
-  background-color: #baadff;
+  background-color: #c8b7e8;
 }
 .table-hover .table-primary:hover > td,
 .table-hover .table-primary:hover > th {
-  background-color: #baadff;
+  background-color: #c8b7e8;
 }
 
 .table-secondary,
 .table-secondary > th,
 .table-secondary > td {
-  background-color: #d6d8db;
+  background-color: #ffeeba;
 }
 .table-secondary th,
 .table-secondary td,
 .table-secondary thead th,
 .table-secondary tbody + tbody {
-  border-color: #b3b7bb;
+  border-color: #ffdf7e;
 }
 
 .table-hover .table-secondary:hover {
-  background-color: #c8cbcf;
+  background-color: #ffe8a1;
 }
 .table-hover .table-secondary:hover > td,
 .table-hover .table-secondary:hover > th {
-  background-color: #c8cbcf;
+  background-color: #ffe8a1;
 }
 
 .table-success,
@@ -650,6 +651,17 @@ template {
     border: 0;
   }
 }
+@media (max-width: 1399.98px) {
+  .table-responsive-xxl {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-responsive-xxl > .table-bordered, .wp-block-table .table-responsive-xxl > table {
+    border: 0;
+  }
+}
 .table-responsive {
   display: block;
   width: 100%;
@@ -825,12 +837,12 @@ mark,
 
 .has-purple-color,
 .has-purple-color:visited {
-  color: #5533ff;
+  color: #6f42c1;
 }
 
 .has-purple-background-color {
-  background-color: #5533ff;
-  border-color: #5533ff;
+  background-color: #6f42c1;
+  border-color: #6f42c1;
 }
 
 .has-pink-color,
@@ -935,22 +947,22 @@ mark,
 
 .has-primary-color,
 .has-primary-color:visited {
-  color: #5533ff;
+  color: #6f42c1;
 }
 
 .has-primary-background-color {
-  background-color: #5533ff;
-  border-color: #5533ff;
+  background-color: #6f42c1;
+  border-color: #6f42c1;
 }
 
 .has-secondary-color,
 .has-secondary-color:visited {
-  color: #6c757d;
+  color: #ffc107;
 }
 
 .has-secondary-background-color {
-  background-color: #6c757d;
-  border-color: #6c757d;
+  background-color: #ffc107;
+  border-color: #ffc107;
 }
 
 .has-success-color,
@@ -1069,6 +1081,14 @@ body.understrap-no-sidebar .wp-block-cover.alignfull .wp-block-cover__inner-cont
     max-width: 1140px;
   }
 }
+@media (min-width: 1400px) {
+  body.understrap-no-sidebar .alignwide .wp-block-cover__inner-container,
+body.understrap-no-sidebar .alignfull .wp-block-cover__inner-container,
+body.understrap-no-sidebar .wp-block-cover.alignwide .wp-block-cover__inner-container,
+body.understrap-no-sidebar .wp-block-cover.alignfull .wp-block-cover__inner-container {
+    max-width: 1270px;
+  }
+}
 body.understrap-no-sidebar .alignwide,
 body.understrap-no-sidebar .wp-block-cover.alignwide {
   margin: 0px calc(50% - 45vw);
@@ -1105,6 +1125,12 @@ body.understrap-no-sidebar .wp-block-cover.alignwide .wp-block-cover__inner-cont
   body.understrap-no-sidebar .alignwide .wp-block-cover__inner-container,
 body.understrap-no-sidebar .wp-block-cover.alignwide .wp-block-cover__inner-container {
     max-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  body.understrap-no-sidebar .alignwide .wp-block-cover__inner-container,
+body.understrap-no-sidebar .wp-block-cover.alignwide .wp-block-cover__inner-container {
+    max-width: 1270px;
   }
 }
 @media (max-width: 920px) {

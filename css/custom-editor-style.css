@@ -170,11 +170,11 @@ sup {
 }
 
 a {
-  color: #5533ff;
+  color: #6f42c1;
   text-decoration: underline;
 }
 a:hover {
-  color: #4429cc;
+  color: #59359a;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -425,7 +425,7 @@ progress {
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
-  --bs-purple: #5533ff;
+  --bs-purple: #6f42c1;
   --bs-pink: #d63384;
   --bs-red: #dc3545;
   --bs-orange: #fd7e14;
@@ -445,16 +445,16 @@ progress {
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #5533ff;
-  --bs-secondary: #6c757d;
+  --bs-primary: #6f42c1;
+  --bs-secondary: #ffc107;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
   --bs-warning: #ffc107;
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-primary-rgb: 85, 51, 255;
-  --bs-secondary-rgb: 108, 117, 125;
+  --bs-primary-rgb: 111, 66, 193;
+  --bs-secondary-rgb: 255, 193, 7;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 255, 193, 7;
@@ -503,8 +503,8 @@ progress {
 .table > thead, .wp-block-table table > thead {
   vertical-align: bottom;
 }
-.table > :not(:last-child) > :last-child > *, .wp-block-table table > :not(:last-child) > :last-child > * {
-  border-bottom-color: currentColor;
+.table > :not(:first-child), .wp-block-table table > :not(:first-child) {
+  border-top: 2px solid currentColor;
 }
 
 .caption-top {
@@ -525,8 +525,11 @@ progress {
 .table-borderless > :not(caption) > * > * {
   border-bottom-width: 0;
 }
+.table-borderless > :not(:first-child) {
+  border-top-width: 0;
+}
 
-.table-striped > tbody > tr:nth-of-type(odd) {
+.table-striped > tbody > tr:nth-of-type(odd) > * {
   --bs-table-accent-bg: var(--bs-table-striped-bg);
   color: var(--bs-table-striped-color);
 }
@@ -536,33 +539,33 @@ progress {
   color: var(--bs-table-active-color);
 }
 
-.table-hover > tbody > tr:hover {
+.table-hover > tbody > tr:hover > * {
   --bs-table-accent-bg: var(--bs-table-hover-bg);
   color: var(--bs-table-hover-color);
 }
 
 .table-primary {
-  --bs-table-bg: #ddd6ff;
-  --bs-table-striped-bg: #d2cbf2;
+  --bs-table-bg: #e2d9f3;
+  --bs-table-striped-bg: #d7cee7;
   --bs-table-striped-color: #000;
-  --bs-table-active-bg: #c7c1e6;
+  --bs-table-active-bg: #cbc3db;
   --bs-table-active-color: #000;
-  --bs-table-hover-bg: #ccc6ec;
+  --bs-table-hover-bg: #d1c9e1;
   --bs-table-hover-color: #000;
   color: #000;
-  border-color: #c7c1e6;
+  border-color: #cbc3db;
 }
 
 .table-secondary {
-  --bs-table-bg: #e2e3e5;
-  --bs-table-striped-bg: #d7d8da;
+  --bs-table-bg: #fff3cd;
+  --bs-table-striped-bg: #f2e7c3;
   --bs-table-striped-color: #000;
-  --bs-table-active-bg: #cbccce;
+  --bs-table-active-bg: #e6dbb9;
   --bs-table-active-color: #000;
-  --bs-table-hover-bg: #d1d2d4;
+  --bs-table-hover-bg: #ece1be;
   --bs-table-hover-color: #000;
   color: #000;
-  border-color: #cbccce;
+  border-color: #e6dbb9;
 }
 
 .table-success {
@@ -833,12 +836,12 @@ progress {
 
 .has-purple-color,
 .has-purple-color:visited {
-  color: #5533ff;
+  color: #6f42c1;
 }
 
 .has-purple-background-color {
-  background-color: #5533ff;
-  border-color: #5533ff;
+  background-color: #6f42c1;
+  border-color: #6f42c1;
 }
 
 .has-pink-color,
@@ -943,22 +946,22 @@ progress {
 
 .has-primary-color,
 .has-primary-color:visited {
-  color: #5533ff;
+  color: #6f42c1;
 }
 
 .has-primary-background-color {
-  background-color: #5533ff;
-  border-color: #5533ff;
+  background-color: #6f42c1;
+  border-color: #6f42c1;
 }
 
 .has-secondary-color,
 .has-secondary-color:visited {
-  color: #6c757d;
+  color: #ffc107;
 }
 
 .has-secondary-background-color {
-  background-color: #6c757d;
-  border-color: #6c757d;
+  background-color: #ffc107;
+  border-color: #ffc107;
 }
 
 .has-success-color,
@@ -1082,7 +1085,7 @@ body.understrap-no-sidebar .wp-block-cover.alignfull .wp-block-cover__inner-cont
 body.understrap-no-sidebar .alignfull .wp-block-cover__inner-container,
 body.understrap-no-sidebar .wp-block-cover.alignwide .wp-block-cover__inner-container,
 body.understrap-no-sidebar .wp-block-cover.alignfull .wp-block-cover__inner-container {
-    max-width: 1320px;
+    max-width: 1270px;
   }
 }
 body.understrap-no-sidebar .alignwide,
@@ -1126,7 +1129,7 @@ body.understrap-no-sidebar .wp-block-cover.alignwide .wp-block-cover__inner-cont
 @media (min-width: 1400px) {
   body.understrap-no-sidebar .alignwide .wp-block-cover__inner-container,
 body.understrap-no-sidebar .wp-block-cover.alignwide .wp-block-cover__inner-container {
-    max-width: 1320px;
+    max-width: 1270px;
   }
 }
 @media (max-width: 920px) {
