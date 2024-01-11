@@ -1,6 +1,6 @@
 /*!
- * Understrap v1.2.1 (https://understrap.com)
- * Copyright 2013-2022 The UnderStrap Authors (https://github.com/understrap/understrap/graphs/contributors)
+ * Understrap v1.2.3-beta.1 (https://understrap.com)
+ * Copyright 2013-2023 The Understrap Authors (https://github.com/understrap/understrap/graphs/contributors)
  * Licensed under GPL-3.0 (https://www.gnu.org/licenses/gpl-3.0.html)
  */
 (function (global, factory) {
@@ -16,7 +16,7 @@
    * --------------------------------------------------------------------------
    */
 
-  const MAX_UID = 1_000_000;
+  const MAX_UID = 1000000;
   const MILLISECONDS_MULTIPLIER = 1000;
   const TRANSITION_END = 'transitionend';
 
@@ -284,6 +284,7 @@
    * --------------------------------------------------------------------------
    */
 
+
   /**
    * Constants
    */
@@ -489,7 +490,7 @@
     for (const [key, value] of Object.entries(meta || {})) {
       try {
         obj[key] = value;
-      } catch {
+      } catch (_unused) {
         Object.defineProperty(obj, key, {
           configurable: true,
           get() {
@@ -574,7 +575,7 @@
     }
     try {
       return JSON.parse(decodeURIComponent(value));
-    } catch {
+    } catch (_unused) {
       return value;
     }
   }
@@ -612,6 +613,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * Class definition
@@ -665,6 +667,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * Constants
@@ -733,6 +736,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
   const enableDismissTrigger = (component, method = 'hide') => {
     const clickEvent = `click.dismiss${component.EVENT_KEY}`;
     const name = component.NAME;
@@ -757,6 +761,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * Constants
@@ -832,6 +837,7 @@
    * --------------------------------------------------------------------------
    */
 
+
   /**
    * Constants
    */
@@ -895,6 +901,7 @@
    * --------------------------------------------------------------------------
    */
 
+
   /**
    * Constants
    */
@@ -951,6 +958,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * Constants
@@ -1070,6 +1078,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * Constants
@@ -1442,6 +1451,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * Constants
@@ -1821,7 +1831,7 @@
 
   function getUAString() {
     var uaData = navigator.userAgentData;
-    if (uaData != null && uaData.brands) {
+    if (uaData != null && uaData.brands && Array.isArray(uaData.brands)) {
       return uaData.brands.map(function (item) {
         return item.brand + "/" + item.version;
       }).join(' ');
@@ -2108,10 +2118,9 @@
   // Zooming can change the DPR, but it seems to report a value that will
   // cleanly divide the values into the appropriate subpixels.
 
-  function roundOffsetsByDPR(_ref) {
+  function roundOffsetsByDPR(_ref, win) {
     var x = _ref.x,
       y = _ref.y;
-    var win = window;
     var dpr = win.devicePixelRatio || 1;
     return {
       x: round(x * dpr) / dpr || 0,
@@ -2184,7 +2193,7 @@
     var _ref4 = roundOffsets === true ? roundOffsetsByDPR({
       x: x,
       y: y
-    }) : {
+    }, getWindow(popper)) : {
       x: x,
       y: y
     };
@@ -3169,7 +3178,7 @@
 
           state.orderedModifiers = orderedModifiers.filter(function (m) {
             return m.enabled;
-          }); // Validate the provided modifiers so that the consumer will get warned
+          });
           runModifierEffects();
           return instance.update();
         },
@@ -3257,11 +3266,11 @@
       // one.
 
       function runModifierEffects() {
-        state.orderedModifiers.forEach(function (_ref3) {
-          var name = _ref3.name,
-            _ref3$options = _ref3.options,
-            options = _ref3$options === void 0 ? {} : _ref3$options,
-            effect = _ref3.effect;
+        state.orderedModifiers.forEach(function (_ref) {
+          var name = _ref.name,
+            _ref$options = _ref.options,
+            options = _ref$options === void 0 ? {} : _ref$options,
+            effect = _ref.effect;
           if (typeof effect === 'function') {
             var cleanupFn = effect({
               state: state,
@@ -3297,44 +3306,44 @@
 
   var Popper = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    popperGenerator: popperGenerator,
-    detectOverflow: detectOverflow,
-    createPopperBase: createPopper$2,
-    createPopper: createPopper,
-    createPopperLite: createPopper$1,
-    top: top,
-    bottom: bottom,
-    right: right,
-    left: left,
-    auto: auto,
-    basePlacements: basePlacements,
-    start: start,
-    end: end,
-    clippingParents: clippingParents,
-    viewport: viewport,
-    popper: popper,
-    reference: reference,
-    variationPlacements: variationPlacements,
-    placements: placements,
-    beforeRead: beforeRead,
-    read: read,
-    afterRead: afterRead,
-    beforeMain: beforeMain,
-    main: main,
     afterMain: afterMain,
-    beforeWrite: beforeWrite,
-    write: write,
+    afterRead: afterRead,
     afterWrite: afterWrite,
-    modifierPhases: modifierPhases,
     applyStyles: applyStyles$1,
     arrow: arrow$1,
+    auto: auto,
+    basePlacements: basePlacements,
+    beforeMain: beforeMain,
+    beforeRead: beforeRead,
+    beforeWrite: beforeWrite,
+    bottom: bottom,
+    clippingParents: clippingParents,
     computeStyles: computeStyles$1,
+    createPopper: createPopper,
+    createPopperBase: createPopper$2,
+    createPopperLite: createPopper$1,
+    detectOverflow: detectOverflow,
+    end: end,
     eventListeners: eventListeners,
     flip: flip$1,
     hide: hide$1,
+    left: left,
+    main: main,
+    modifierPhases: modifierPhases,
     offset: offset$1,
+    placements: placements,
+    popper: popper,
+    popperGenerator: popperGenerator,
     popperOffsets: popperOffsets$1,
-    preventOverflow: preventOverflow$1
+    preventOverflow: preventOverflow$1,
+    read: read,
+    reference: reference,
+    right: right,
+    start: start,
+    top: top,
+    variationPlacements: variationPlacements,
+    viewport: viewport,
+    write: write
   });
 
   /**
@@ -3343,6 +3352,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * Constants
@@ -3711,6 +3721,7 @@
    * --------------------------------------------------------------------------
    */
 
+
   /**
    * Constants
    */
@@ -3807,6 +3818,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * Constants
@@ -3932,6 +3944,7 @@
    * --------------------------------------------------------------------------
    */
 
+
   /**
    * Constants
    */
@@ -4029,6 +4042,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * Constants
@@ -4335,6 +4349,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * Constants
@@ -4661,6 +4676,7 @@
    * --------------------------------------------------------------------------
    */
 
+
   /**
    * Constants
    */
@@ -4795,6 +4811,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * Constants
@@ -5307,6 +5324,7 @@
    * --------------------------------------------------------------------------
    */
 
+
   /**
    * Constants
    */
@@ -5386,6 +5404,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * Constants
@@ -5645,6 +5664,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * Constants
@@ -5906,6 +5926,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * Constants
