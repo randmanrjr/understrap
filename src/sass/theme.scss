@@ -1,4 +1,5 @@
 @import "theme/theme_variables";             // <--- Add your variables into this file. Also add variables to overwrite Bootstrap or Understrap variables here
+@import "theme/typography";                  // <--- Add your typography variables here to overwrite Bootstrap or Understrap variables here
 @import "assets/bootstrap5/bootstrap";       // <--- Loads Bootstrap
 @import "theme/understrap";                  // <--- Loads the Understrap defaults. Just a few classes to incorporate BS in WP
 @import "theme/colors";                      // <--- This creates the necessary bootstrap color classes.
@@ -8,7 +9,25 @@
 @import "theme/contact-form7";               // <--- Contact Form 7 - Bootstrap support
 @import "theme/woocommerce";                 // <--- Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce
 @import "assets/fontawesome/font-awesome";   // <--- Font Awesome Icon font
+@import "theme/slick/slick";
+@import "theme/slick/slick-theme";
+@import "theme/randmans-social-colors/social-colors";
 
-// Any additional imported files //
-@import "theme/theme";                       // <--- That's where you can add your own design. Thats your part!
+// Any additional imported files
+// Add additional partial files as needed
+@import "theme/headings";
+@import "theme/mixins";
+@import "theme/buttons";
+@import "theme/header";
+@import "theme/navigation";
+@import "theme/footer";
+@import "theme/gravity-forms";
+@import "theme/search";
 
+// Page template partials
+@import "theme/page-templates/front-page";
+@import "theme/page-templates/fullwidthpage";
+@import "theme/page-templates/home";
+
+// Flexible layout partials
+@import "theme/flexible-layouts/full-width-wysiwyg";

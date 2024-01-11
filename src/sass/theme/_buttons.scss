@@ -1,0 +1,94 @@
+// Example button overrides using series of mixins combined with css classes
+
+//@mixin base-button {
+//  display: inline-block;
+//  min-width: 150px;
+//  font-size: 15px;
+//  line-height: 1;
+//  font-family: $inter-font-family;
+//  font-weight: bold;
+//  text-transform: none;
+//  border: none;
+//  border-radius: 4px;
+//  padding: 1rem;
+//  transition: all 0.3s ease-in-out;
+//}
+//.btn {
+//  @include base-button;
+//  color: $white;
+//  background-color: $primary;
+//  &:hover {
+//    background-color: $primary;
+//    color: $white;
+//  }
+//
+//  &.btn-shortcode {
+//    padding: 12px 30px;
+//    color: $white;
+//    text-decoration: none!important;
+//    &::after {
+//      color: $white;
+//      right: 10px;
+//    }
+//  }
+//}
+//
+//@mixin button-arrow ($margin-l: 1.25rem) {
+//  content: "";
+//  display: inline-block;
+//  height: 17px;
+//  width: 21px;
+//  background-repeat: no-repeat;
+//  background-size: contain;
+//  background-position: center;
+//  margin-left: $margin-l;
+//  margin-bottom: -4px;
+//}
+//
+//// White buttons
+//@mixin white-button {
+//  @include base-button;
+//  color: $primary;
+//  background-color: $white;
+//  &:hover {
+//    color: $primary;
+//    background-color: $white;
+//  }
+//}
+//@mixin white-button-arrow {
+//  @include white-button;
+//  &::after {
+//    @include button-arrow;
+//    background-image: url(../images/img-icon-button-arrow-blue-2x.png);
+//  }
+//}
+//.btn-white {
+//  @include white-button;
+//}
+//.btn-white-arrow {
+//  @include white-button-arrow;
+//}
+//
+//// Blue buttons
+//@mixin blue-button {
+//  @include base-button;
+//  color: $white;
+//  background-color: $primary;
+//  &:hover {
+//    color: $white;
+//    background-color: $primary;
+//  }
+//}
+//@mixin blue-button-arrow {
+//  @include blue-button;
+//  &::after {
+//    @include button-arrow;
+//    background-image: url(../images/img-icon-button-arrow-2x.png);
+//  }
+//}
+//.btn-blue {
+//  @include blue-button;
+//}
+//.btn-blue-arrow {
+//  @include blue-button-arrow;
+//}
