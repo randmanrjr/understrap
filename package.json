@@ -50,7 +50,7 @@
     "@rollup/plugin-multi-entry": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "autoprefixer": "^10.3.2",
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^5.3.2",
     "browser-sync": "^2.27.5",
     "browserslist": "^4.16.8",
     "caniuse-lite": "^1.0.30001251",
