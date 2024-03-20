@@ -1,5 +1,5 @@
 /*!
- * Understrap v1.2.3-beta.1 (https://understrap.com)
+ * Understrap v1.2.3 (https://understrap.com)
  * Copyright 2013-2024 The Understrap Authors (https://github.com/understrap/understrap/graphs/contributors)
  * Licensed under GPL-3.0 (https://www.gnu.org/licenses/gpl-3.0.html)
  */
@@ -21,7 +21,7 @@
   }
   function _toPropertyKey(t) {
     var i = _toPrimitive(t, "string");
-    return "symbol" == typeof i ? i : String(i);
+    return "symbol" == typeof i ? i : i + "";
   }
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -330,13 +330,12 @@
         alertInstance.close(this);
       };
     };
-    _createClass(Alert, null, [{
+    return _createClass(Alert, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$a;
       }
     }]);
-    return Alert;
   }();
   /**
    * Data API implementation
@@ -450,13 +449,12 @@
         }
       });
     };
-    _createClass(Button, null, [{
+    return _createClass(Button, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$9;
       }
     }]);
-    return Button;
   }();
   /**
    * Data API implementation
@@ -976,7 +974,7 @@
       }
       event.preventDefault();
     };
-    _createClass(Carousel, null, [{
+    return _createClass(Carousel, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$8;
@@ -987,7 +985,6 @@
         return Default$7;
       }
     }]);
-    return Carousel;
   }();
   /**
    * Data API implementation
@@ -1251,7 +1248,7 @@
         }
       });
     };
-    _createClass(Collapse, null, [{
+    return _createClass(Collapse, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$7;
@@ -1262,7 +1259,6 @@
         return Default$6;
       }
     }]);
-    return Collapse;
   }();
   /**
    * Data API implementation
@@ -4128,7 +4124,7 @@
       }
       items[index].focus();
     };
-    _createClass(Dropdown, null, [{
+    return _createClass(Dropdown, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$6;
@@ -4144,7 +4140,6 @@
         return DefaultType$5;
       }
     }]);
-    return Dropdown;
   }();
   /**
    * Data API implementation
@@ -4621,7 +4616,7 @@
         }
       });
     };
-    _createClass(Modal, null, [{
+    return _createClass(Modal, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$5;
@@ -4632,7 +4627,6 @@
         return Default$4;
       }
     }]);
-    return Modal;
   }();
   /**
    * Data API implementation
@@ -5331,7 +5325,7 @@
         }
       });
     };
-    _createClass(Tooltip, null, [{
+    return _createClass(Tooltip, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$4;
@@ -5367,7 +5361,6 @@
         return DefaultType$3;
       }
     }]);
-    return Tooltip;
   }();
   /**
    * jQuery
@@ -5420,10 +5413,10 @@
    * Class definition
    */
   var Popover = /*#__PURE__*/function (_Tooltip) {
-    _inheritsLoose(Popover, _Tooltip);
     function Popover() {
       return _Tooltip.apply(this, arguments) || this;
     }
+    _inheritsLoose(Popover, _Tooltip);
     var _proto = Popover.prototype;
     // Overrides
     _proto.isWithContent = function isWithContent() {
@@ -5483,7 +5476,7 @@
         }
       });
     };
-    _createClass(Popover, null, [{
+    return _createClass(Popover, null, [{
       key: "VERSION",
       get:
       // Getters
@@ -5521,7 +5514,6 @@
         return DefaultType$2;
       }
     }]);
-    return Popover;
   }(Tooltip);
   /**
    * jQuery
@@ -5735,7 +5727,7 @@
         }
       });
     };
-    _createClass(ScrollSpy, null, [{
+    return _createClass(ScrollSpy, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$2;
@@ -5746,7 +5738,6 @@
         return Default$1;
       }
     }]);
-    return ScrollSpy;
   }();
   /**
    * Data API implementation
@@ -5933,13 +5924,12 @@
         }
       });
     };
-    _createClass(Tab, null, [{
+    return _createClass(Tab, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$1;
       }
     }]);
-    return Tab;
   }();
   /**
    * Data API implementation
@@ -6108,7 +6098,7 @@
         }
       });
     };
-    _createClass(Toast, null, [{
+    return _createClass(Toast, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION;
@@ -6124,7 +6114,6 @@
         return Default;
       }
     }]);
-    return Toast;
   }();
   /**
    * jQuery
